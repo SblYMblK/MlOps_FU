@@ -1,0 +1,96 @@
+<!-- templates/index_custom.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Узнай, что моя модель думает про твои числа</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #predictionBlock {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #4CAF50;
+        }
+        input {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="predictionBlock">
+        <h1>Узнай, что моя модель думает про твои числа</h1>
+        <p>Введи два числа и узнай хорошие они или плохие</p>
+        <form id="predictionForm">
+            <label for="num1">Введи первое число:</label>
+            <input type="text" id="num1" name="num1" placeholder="Введите значение" required>
+            <br>
+            <label for="num2">Введи второе число:</label>
+            <input type="text" id="num2" name="num2" placeholder="Введите значение" required>
+            <br>
+            <button type="submit">Узнай мнение модели</button>
+        </form>
+
+        <!-- Добавьте этот блок в файл -->
+        <div id="prediction_result" style="margin-top: 20px;"></div>
+
+        <!-- Добавьте этот JavaScript-код в конец файла -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('predictionForm');
+                const predictionResult = document.getElementById('prediction_result');
+
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const formData = new FormData(form);
+
+                    fetch('/predict', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if ('predicted_class' in data) {
+                            const classInfo = data.predicted_class === 1 ? 'Числа хорошие' : 'Числа плохие';
+                            predictionResult.innerHTML = `<p>${classInfo}</p>`;
+                        } else if ('error' in data) {
+                            predictionResult.innerHTML = `<p style="color: red;">Ошибка: ${data.error}</p>`;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Произошла ошибка:', error);
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

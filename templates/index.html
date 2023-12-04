@@ -1,0 +1,46 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модель предсказания</title>
+</head>
+<body>
+    <h1>Определение темы новости</h1>
+    <form id="predictionForm">
+        <label for="news_title">Введите новостной заголовок:</label>
+        <input type="text" id="news_title" name="news_title" required>
+        <button type="submit">Какая тема у новости?</button>
+    </form>
+    <div id="predictionResult"></div>
+
+    <script>
+        // Обработчик отправки формы
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвратить отправку формы
+
+            // Получение значения из поля ввода
+            var newsTitle = document.getElementById('news_title').value;
+
+            // Отправка POST-запроса с введенным заголовком
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'news_title=' + encodeURIComponent(newsTitle),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Отображение результата в браузере
+                var resultDiv = document.getElementById('predictionResult');
+                resultDiv.innerHTML = 'Тема вашей новости: ' + data.prediction;
+            })
+            .catch(error => {
+                console.error('Ошибка при обращении к серверу:', error);
+            });
+        });
+    </script>
+</body>
+</html>
