@@ -3,43 +3,43 @@
 ![image](https://github.com/SblYMblK/MlOps_FU/assets/56089304/319d89bf-de7b-4ca2-950a-6f886a88ebec)
 
 
-# News Topic Classifier
+# Классификатор Тем Новостей
 
-[![Build Status](https://img.shields.io/travis/yourusername/news-topic-classifier.svg)](https://travis-ci.org/yourusername/news-topic-classifier)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Статус сборки](https://img.shields.io/travis/yourusername/classifier-news-topics.svg)](https://travis-ci.org/yourusername/classifier-news-topics)
+[![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A web application that classifies news topics using a simple machine learning model.
+Веб-приложение для классификации тем новостей с использованием простой модели машинного обучения.
 
-## Table of Contents
+## Содержание
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Введение](#введение)
+- [Особенности](#особенности)
+- [Установка](#установка)
+- [Использование](#использование)
+- [Вклад в разработку](#вклад-в-разработку)
+- [Лицензия](#лицензия)
 
-## Introduction
+## Введение
 
-The News Topic Classifier is a Flask web application that allows users to input news headlines and receive predictions for their topics. It uses a simple machine learning model to demonstrate the integration of AI into web development.
+Классификатор Тем Новостей - это веб-приложение на Flask, которое позволяет пользователям вводить заголовки новостей и получать предсказания их тем. Он использует простую модель машинного обучения для демонстрации интеграции искусственного интеллекта в веб-разработку.
 
-## Features
+## Особенности
 
-- Input news headlines and get topic predictions.
-- Stylish and user-friendly interface.
-- Responsive design for various devices.
+- Вводите заголовки новостей и получайте предсказания тем.
+- Стильный и удобный интерфейс.
+- Адаптивный дизайн для различных устройств.
 
-## Installation
+## Установка
 
-Clone the repository and install dependencies.
+Клонируйте репозиторий и установите зависимости.
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/news-topic-classifier.git
+# Клонировать репозиторий
+git clone https://github.com/yourusername/classifier-news-topics.git
 
-# Navigate to the project folder
-cd news-topic-classifier
+# Перейти в папку проекта
+cd classifier-news-topics
 
-# Install dependencies
+# Установить зависимости
 pip install -r requirements.txt
 
