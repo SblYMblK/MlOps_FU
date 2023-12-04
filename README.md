@@ -1,14 +1,16 @@
-"# MlOps_FU"
-
-![image](https://github.com/SblYMblK/MlOps_FU/assets/56089304/319d89bf-de7b-4ca2-950a-6f886a88ebec)
 
 
-# Классификатор Тем Новостей
+
+
+
+# Определи, что думает моя модель про твои цифры
 
 [![Статус сборки](https://img.shields.io/travis/yourusername/classifier-news-topics.svg)](https://travis-ci.org/yourusername/classifier-news-topics)
 [![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Веб-приложение для классификации тем новостей с использованием простой модели машинного обучения.
+![image](https://github.com/SblYMblK/MlOps_FU/assets/56089304/319d89bf-de7b-4ca2-950a-6f886a88ebec)
+
+
 
 ## Содержание
 
